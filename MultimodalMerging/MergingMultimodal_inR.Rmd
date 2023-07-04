@@ -17,9 +17,9 @@ library(papaja) #for using printnum
 
 * This R coding module shows some basic data wrangling procedures that are often required when analyzing motion, sound, for events bounded by annotations. These procedures include merging data streams, deriving 1-dimensional measures from high dimensional motion tracking data, accounthing for different sampling rates, and smoothing the data. We also show some simple applications once we have a multimodal dataset prepared, in the form of a simple peak analysis.
 
-* location Repository:  https://github.com/WimPouw/EnvisionBootcamp2021
+* location Repository:  https://github.com/WimPouw/envisionBOX_modulesWP/tree/main/MultimodalMerging
 
-* location Rmarkdown: https://github.com/WimPouw/EnvisionBootcamp2021/blob/main/R/MergingAcousticsMT/MergingAcousticsMT.Rmd
+* location Rmarkdown: https://github.com/WimPouw/envisionBOX_modulesWP/blob/main/MultimodalMerging/MergingMultimodal.Rmd
 
 * citation: Pouw, W. & Trujillo, J. P. (`r Sys.Date()`). *Selecting, smoothing, and deriving measures from motion tracking, and merging with acoustics and annotations*. [the day you viewed the site]. Retrieved from: https://wimpouw.github.io/EnvisionBootcamp2021/MergingAcousticsMT.html
 
