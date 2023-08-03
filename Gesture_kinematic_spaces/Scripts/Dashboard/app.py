@@ -15,20 +15,23 @@ df = pd.read_csv('./assets/main.csv')
 app.layout = html.Div([
 
     html.H1("Multimodal Dynamic Data Visualizer", style={'text-align': 'center'}),
+    html.H2("Contact (wim.pouw@donders.ru.nl)", style={'text-align': 'center'}),
+    html.H3("Contact (wim.pouw@donders.ru.nl)", style={'text-align': 'center'}),
     dcc.Dropdown(id="mode_rep",
                  options=[
+                     {"label": 'all', "value": 'all'},
                      {"label": "personification", "value": "personification"},
                      {"label": "acting", "value": "acting"},
                      {"label": "representing", "value": "representing"}],
                  multi=False,
-                 value="acting",
+                 value="all",
                  style={'width': "40%"}
                  ),
 
     html.Div(id='output_container', children=[], style = {'color': 'white'}),
     html.Br(),
     dcc.Graph(id='MY_XY_Map', figure={},style={'width': '49%', 'textAlign': 'center','display': 'inline-block'}),
-    html.Video(controls=True, id='videoplayer', src='', style={'width': '49%', 'textAlign': 'center', 'display': 'inline-block', 'vertical-align': 'top'}, autoPlay=True)
+    html.Video(controls=True, id='videoplayer', src='', style={'width': '45%', 'textAlign': 'center', 'display': 'inline-block', 'vertical-align': 'top'}, autoPlay=True, muted=True, loop=True)
 ])
 
 # ------------------------------------------------------------------------------
@@ -44,13 +47,15 @@ app.layout = html.Div([
 def update_graph(option_slctd, clickData):
     container = "Click on any point to inspect the multimodal event associated with it. \n You subselected events for: {}".format(option_slctd)
     dff = df.copy()
-    dff = dff[dff["Mode of rep"] == option_slctd]
+    if option_slctd != 'all':
+        dff = dff[dff["Mode of rep"] == option_slctd]
 
     # Plotly Express
     fig = px.scatter(
         data_frame=dff,
         x=dff['x'],
         y=dff['y'],
+        color = dff["Mode of rep"],
         opacity=0.75,
         #color='Pct of Colonies Impacted',
         hover_data=['English'],
