@@ -16,7 +16,7 @@ app.layout = html.Div([
 
     html.H1("Multimodal Dynamic Data Visualizer", style={'text-align': 'center'}),
     html.H2("Contact (wim.pouw@donders.ru.nl)", style={'text-align': 'center'}),
-    html.H3("Contact (wim.pouw@donders.ru.nl)", style={'text-align': 'center'}),
+    html.H3("Github: ", style={'text-align': 'center'}),
     dcc.Dropdown(id="mode_rep",
                  options=[
                      {"label": 'all', "value": 'all'},
@@ -63,8 +63,10 @@ def update_graph(option_slctd, clickData):
         labels={'1st dimension': 'second dimension'},
         template='plotly_dark'
     )
+    # adjust some parameters of the figure
     fig.update_traces(marker_size=15)
-
+    fig.update_layout(legend=dict(orientation="h"))
+    fig['layout']['uirevision'] = 42
     #get the video clicked on
     check = str(clickData)
     converted_to_legal_json = check.replace("'", '"')
