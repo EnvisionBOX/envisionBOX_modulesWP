@@ -1,1 +1,12 @@
 jupyterlab-plotly
+pandas
+numpy
+plotly
+html
+scipy
+umap-learn
+skimage
+networkx
+matplotlib
+
+
