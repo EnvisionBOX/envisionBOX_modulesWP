@@ -23,9 +23,6 @@ library(papaja) #for using printnum
 
 * citation: Pouw, W. (`r Sys.Date()`). *Selecting, smoothing, and deriving measures from motion tracking, and merging with acoustics and annotations*. [the day you viewed the site]. Retrieved from: https://envisionbox.org/embedded_MergingMultimodal_inR.html
 
-## Video Tutorial (from envision bootcamp 2021)
-<iframe width="950" height="534" src="https://www.youtube.com/embed/0uAa10VbVes?list=PL8vb5RWWmZQCWjjnP2HQT4kPI2Q5XKB0D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Background
 
 In multimodal analysis you will often encounter the situation that you have signals that are continuous but sampling at different rates, and such signals then also need to be related to qualitative codings such as ELAN gesture annotations, or trial information of your experiment. It is sometimes convenient to have everything you need in one time series file, so you can apply your multimodal analysis easily. A lot of the initial steps of even beginning to do some quantitative multimodal recording and analysis are covered in Pouw, Trujillo, Dixon (2020); here we provide some basic data wrangling steps that are often required to set up your dataset (e.g., merging data, smoothing data, extracting kinematic variables). 
@@ -292,6 +289,33 @@ B <- ggplot(mag_D, aes(x=synchrony, color = g_type))+ geom_density()+theme_bw()+
 
 grid.arrange(grid.arrange(a, b), B, nrow=1)
 ```
+
+## Continuous trajectory analyes
+Note that the above density analysis is not really ideal because the peak is determined within a gesture event we would rather have the nearest peak of the amplitude envelope, rather than the max peak within a gesture event window another cool way is to go for a more continuous approach: what if we look at all the trajectories of the envelope around the moment (-+ 200 milliseconds) that a peak in speed emerged. The dataset we are creating here would be amenable to a GAM analyses for example.
+
+```{r}
+mfield <- data.frame() #initialize a data.frame for all the trajectories
+for(ID in unique(merged$gesture_ID[!is.na(merged$gesture_ID)])) #loop through all gesture ID's
+{
+  temp <- subset(merged, gesture_ID==ID)                                      #select a time series chunk having that gesture ID
+  merged$time_temp <- merged$time-temp$time[which.max(temp$speed)] #subtract from a temporary time vector in the original TS the timing of the peak speed of that gesture 
+  tempTS <- merged[abs(merged$time_temp) < 200 & merged$gesture_ID==ID,]              #now keep only the original TS where 250 millisecond after and before the peak speed
+  mfieldtemp <- data.frame(matrix(nrow=length(tempTS$env)))               #
+  mfieldtemp$time <-  tempTS$time_temp                                    #save the time vector (time intervals may be unique to this chunk)
+  mfieldtemp$ENV <-   tempTS$env                                          #save the amplitude envelope trajectory for this particular chunk of TS
+  mfieldtemp$g_type <- unique(tempTS$gesture_t[!is.na(tempTS$gesture_t)]) #save the gesture_type
+  mfieldtemp$g_ID <- ID                                                   #save the ID
+  mfield <- rbind.data.frame(mfield, mfieldtemp)                          #save this loop-cycle's result into a full dataset containing all data
+}
+
+#what is mean field for of the amplitude envelope around the peak (250 ms) in speed depending on the gesture
+p1 <- ggplot(mfield, aes(x=time, y = ENV, color = g_type, group = as.factor(g_ID))) + geom_line(alpha=0.7) + theme_bw() +  ylab('amplitude envelope trajectories')
+p2 <- ggplot(mfield, aes(x=time, y = ENV, color = g_type)) + geom_smooth(method = 'gam', size = 2) + theme_bw() + ylab('gam trajectory amplitude envelope')
+ 
+#plot
+grid.arrange(p1,p2, nrow= 1)
+```
+
 
 ## References
 1. [Pouw, W., Trujillo, J. P., & Dixon, J. A. (2020). The quantification of gesture–speech synchrony: A tutorial and validation of multimodal data acquisition using device-based and video-based motion tracking. Behavior research methods, 52(2), 723-740.](https://link.springer.com/article/10.3758/s13428-019-01271-9)
