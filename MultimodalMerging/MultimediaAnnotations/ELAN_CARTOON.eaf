@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2021-12-06T13:27:45+01:00"
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2023-11-21T18:26:05+01:00"
     FORMAT="3.0" VERSION="3.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Video/video_cartoon.mp4"
+            MEDIA_URL="file:///C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/Multimedia/Video/video_cartoon.mp4"
             MIME_TYPE="video/mp4" RELATIVE_MEDIA_URL="../Multimedia/Video/video_cartoon.mp4"/>
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Audio/audio_cartoon.wav"
+            MEDIA_URL="file:///C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/Multimedia/Audio/audio_cartoon.wav"
             MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="../Multimedia/Audio/audio_cartoon.wav"/>
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Video/video_cartoon_motion_tracking.mp4"
+            MEDIA_URL="file:///C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/Multimedia/Video/video_cartoon_motion_tracking.mp4"
             MIME_TYPE="video/mp4" RELATIVE_MEDIA_URL="../Multimedia/Video/video_cartoon_motion_tracking.mp4"/>
         <MEDIA_DESCRIPTOR
-            MEDIA_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Video/motiontracking_video_cartoon.avi"
-            MIME_TYPE="video/*" RELATIVE_MEDIA_URL="../Multimedia/Video/motiontracking_video_cartoon.avi"/>
+            MEDIA_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Video/motiontracking_video_cartoon.avi" MIME_TYPE="video/*"/>
         <LINKED_FILE_DESCRIPTOR
-            LINK_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/MultimediaAnnotations/ELAN_CARTOON_tsconf.xml"
+            LINK_URL="file:///C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/MultimediaAnnotations/ELAN_CARTOON_tsconf.xml"
             MIME_TYPE="text/xml" RELATIVE_LINK_URL="./ELAN_CARTOON_tsconf.xml"/>
         <LINKED_FILE_DESCRIPTOR
-            LINK_URL="file:///D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/output/mergedMM1.csv"
+            LINK_URL="file:///C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/output/mergedMM1.csv"
             MIME_TYPE="unknown" RELATIVE_LINK_URL="../output/mergedMM1.csv"/>
         <PROPERTY NAME="URN">urn:nl-mpi-tools-elan-eaf:bb180f64-399e-49c1-97a8-534007c6d5ae</PROPERTY>
         <PROPERTY NAME="lastUsedAnnotationId">75</PROPERTY>

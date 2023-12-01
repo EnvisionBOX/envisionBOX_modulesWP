@@ -2,7 +2,7 @@
 <preferences version="1.1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/Prefs_v1.1.xsd">
     <pref key="FrameSize">
-        <Object class="java.awt.Dimension">1920,1040</Object>
+        <Object class="java.awt.Dimension">1280,680</Object>
     </pref>
     <pref key="LayoutManager.SelectedTabIndex">
         <Int>7</Int>
@@ -82,7 +82,7 @@
         </pref>
     </prefGroup>
     <pref key="LayoutManager.TSWavSplitPaneDividerLocation">
-        <Int>187</Int>
+        <Int>1</Int>
     </pref>
     <prefList key="ExportTabDialog.selectedTiers">
         <String>annot_gesture_right</String>
@@ -124,7 +124,7 @@
             <String>http://lux17.mpi.nl/aamlr/</String>
         </pref>
         <pref key="source_audio">
-            <String>D:/Research_Projects/workshops_envision_bootcamp/R/MergingAcousticsMT/Multimedia/Audio/audio_cartoon.wav</String>
+            <String>C:/Research_Projects/envisionBOX_modulesWP/envisionBOX_modulesWP/MultimodalMerging/Multimedia/Audio/audio_cartoon.wav</String>
         </pref>
     </prefGroup>
     <prefList key="MultiTierViewer.HiddenTiers"/>
@@ -132,7 +132,7 @@
         <Int>1</Int>
     </pref>
     <pref key="TimeScaleBeginTime">
-        <Long>147520</Long>
+        <Long>152260</Long>
     </pref>
     <pref key="MediaTime">
         <Long>153770</Long>
@@ -173,7 +173,7 @@
         </pref>
     </prefGroup>
     <pref key="LayoutManager.SplitPaneDividerLocation">
-        <Int>331</Int>
+        <Int>14</Int>
     </pref>
     <prefList key="CommentViewer.Columns.Hidden">
         <String>Sender</String>
